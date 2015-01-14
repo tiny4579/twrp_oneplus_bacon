@@ -22,3 +22,5 @@ ro.gps.agps_provider=1
 
 # cabl is handled by the panel
 ro.qualcomm.cabl=0
+ro.secure=0
+ro.adb.secure=0
