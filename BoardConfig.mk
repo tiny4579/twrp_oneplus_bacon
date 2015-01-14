@@ -19,7 +19,7 @@
 
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogenmod_bacon_defconfig
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=bacon user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.selinux=permissive androidboot.hardware=bacon user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/oneplus/bacon/bluetooth
@@ -49,7 +49,9 @@ BOARD_USERDATAEXTRAIMAGE_PARTITION_SIZE := 59914792960
 BOARD_USERDATAEXTRAIMAGE_PARTITION_NAME := 64G
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.bacon
+# TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.bacon
+RECOVERY_VARIANT := twrp
+
 
 TARGET_OTA_ASSERT_DEVICE := bacon,A0001
 
@@ -67,3 +69,15 @@ AUDIO_FEATURE_ENABLED_LOW_LATENCY_CAPTURE := true
 
 # inherit from the proprietary version
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
+
+# TWRP
+DEVICE_RESOLUTION := 1080x1920
+TW_TARGET_USES_QCOM_BSP := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_NO_USB_STORAGE := true
+TW_INCLUDE_CRYPTO := true
+BOARD_SUPPRESS_SECURE_ERASE := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
+TARGET_USERIMAGES_USE_F2FS := true
